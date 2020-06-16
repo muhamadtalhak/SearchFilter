@@ -106,9 +106,11 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
                 expandedFilter.addView(view)
                 mItems.put(view, item)
             }
-            if (isCollapsed == null) {
-                collapse(1)
-            }
+            
+            isCollapsed = true;
+//             if (isCollapsed == null) {
+//                 collapse(1)
+//             }
         }
         expandedFilter.margin = margin
         collapsedFilter.margin = margin
@@ -276,6 +278,7 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
         item.bringToFront()
     }
 
+    fun select(items: 
     override fun onItemSelected(item: FilterItem) {
         val filter = mItems[item]!!
         if (mItems.contains(item)) {
