@@ -341,6 +341,17 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
         mSelectedItems.clear()
         listener?.onNothingSelected()
     }
+    
+    fun preSelect(items: ArrayList<T>){
+    	for (item in items){
+    		val filter = mItems[item]!!
+        	if (mItems.contains(item)) {
+            	mSelectedItems.add(filter)
+        	}
+        	mSelectedFilters.put(item, Coord(item.x.toInt(), item.y.toInt()))
+    	}
+        listener?.onFiltersSelected(getSelectedItems())
+    }
 
     override fun onSaveInstanceState(): Parcelable {
         val superState = super.onSaveInstanceState()
