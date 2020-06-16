@@ -107,7 +107,7 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
                 mItems.put(view, item)
             }
             
-            isCollapsed = true;
+            isCollapsed = false;
 //             if (isCollapsed == null) {
 //                 collapse(1)
 //             }
