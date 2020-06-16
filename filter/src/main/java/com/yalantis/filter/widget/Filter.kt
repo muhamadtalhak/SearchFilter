@@ -106,11 +106,9 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
                 expandedFilter.addView(view)
                 mItems.put(view, item)
             }
-            
-            isCollapsed = false;
-//             if (isCollapsed == null) {
-//                 collapse(1)
-//             }
+            if (isCollapsed == null) {
+                collapse(1)
+            }
         }
         expandedFilter.margin = margin
         collapsedFilter.margin = margin
