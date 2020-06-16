@@ -341,8 +341,8 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
         mSelectedItems.clear()
         listener?.onNothingSelected()
     }
-    
-    fun preSelect(items: ArrayList<T>){
+
+     fun preSelect(items: ArrayList<FilterItem>){
     	for (item in items){
     		val filter = mItems[item]!!
         	if (mItems.contains(item)) {
