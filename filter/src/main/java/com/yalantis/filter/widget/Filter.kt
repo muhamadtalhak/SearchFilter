@@ -62,6 +62,7 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
         }
 
     private var mIsBusy = false
+    private var mIsSingleSelection = false
 
     private var isCollapsed: Boolean? = null
 
@@ -277,6 +278,9 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
     }
 
     override fun onItemSelected(item: FilterItem) {
+        if(mIsSingleSelection){
+            deselectAllWithoutNotify()
+        }
         val filter = mItems[item]!!
         if (mItems.contains(item)) {
             mSelectedItems.add(filter)
@@ -340,6 +344,16 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
         mSelectedFilters.clear()
         mSelectedItems.clear()
         listener?.onNothingSelected()
+    }
+    
+    fun deselectAllWithoutNotify() {
+        mSelectedFilters.keys.forEach { item -> item.deselect(false) }
+        mSelectedFilters.clear()
+        mSelectedItems.clear()
+    }
+    
+    fun setSingleSelection(singleSelection: Boolean){
+        mIsSingleSelection = singleSelection;
     }
 
      fun preSelect(items: ArrayList<FilterItem>){
