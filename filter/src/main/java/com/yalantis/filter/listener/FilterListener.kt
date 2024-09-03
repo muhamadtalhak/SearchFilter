@@ -15,4 +15,7 @@ interface FilterListener<T> {
 
     fun onFilterDeselected(item: T)
 
+    fun onExpanded()
+    
+    fun onCollapsed()
 }
