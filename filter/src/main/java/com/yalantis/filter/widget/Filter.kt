@@ -184,6 +184,8 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
         }.start()
 
         notifyListener()
+        
+        listener?.onCollapsed()
     }
 
     override fun expand() {
@@ -257,6 +259,8 @@ class Filter<T : FilterModel> : FrameLayout, FilterItemListener, CollapseListene
             filterItem.increase(1f)
             filterItem.deselect()
         }
+
+        listener?.onExpanded()
     }
 
     private fun removeItemsFromParent() {
