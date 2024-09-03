@@ -12,22 +12,10 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        mavenCentral()
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.muhamadtalhak'
-                artifactId = 'SearchFilter'
-                version = '1.5.6'
-            }
-        }
-    }
 }
