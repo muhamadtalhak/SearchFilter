@@ -18,3 +18,16 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                from (components["release"])
+                groupId = "com.github.mint"
+                artifactId = "mint-android-app"
+                version = "0.0.4"
+            }
+        }
+    }
+}
