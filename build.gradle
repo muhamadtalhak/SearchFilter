@@ -19,14 +19,15 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.github.muhamadtalhak'
-            artifactId = 'SearchFilter'
-            version = '1.5.5'
-
-            from components.java
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.muhamadtalhak'
+                artifactId = 'SearchFilter'
+                version = '1.5.6'
+            }
         }
     }
 }
