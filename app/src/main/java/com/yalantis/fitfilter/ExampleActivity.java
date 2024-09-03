@@ -172,6 +172,16 @@ public class ExampleActivity extends AppCompatActivity implements FilterListener
 
     }
 
+    @Override
+    public void onCollapsed() {
+
+    }
+
+    @Override
+    public void onExpanded() {
+
+    }
+
     class Adapter extends FilterAdapter<Tag> {
 
         Adapter(@NotNull List<? extends Tag> items) {
